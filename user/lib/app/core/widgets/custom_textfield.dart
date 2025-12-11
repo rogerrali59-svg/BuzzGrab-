@@ -1,0 +1,303 @@
+/*
+ * @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+ * @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+ * All Rights Reserved.
+ * Proprietary and confidential :  All information contained herein is, and remains
+ * the property of ToXSL Technologies Pvt. Ltd. and its partners.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ */
+
+import '../../../export.dart';
+
+class TextFieldWidget extends StatelessWidget {
+  final String? hint;
+  final String? labelText;
+  final String? tvHeading;
+  final double? height;
+  final double? width;
+  final double? radius;
+  final Color? color;
+  final Color? fillColor;
+  final Color? courserColor;
+  final validate;
+  final hintStyle;
+  final labelStyle;
+  final EdgeInsets? contentPadding;
+  final TextInputType? inputType;
+  final TextEditingController? textController;
+  final FocusNode? focusNode;
+  final Function(String value)? onFieldSubmitted;
+  final Function()? onTap;
+  final TextInputAction? inputAction;
+  final bool? hideBorder;
+  final Widget? suffixIcon;
+  final Widget? prefixIcon;
+  final int? maxline;
+  final decoration;
+  final int? minLine;
+  final int? maxLength;
+  final bool readOnly;
+  final bool? shadow;
+  final bool? isHeading;
+  final bool? obscureText;
+  final bool? isOutined;
+  final Function(String value)? onChange;
+  final inputFormatter;
+  final errorColor;
+  final topMargin;
+  final borderColor;
+
+  const TextFieldWidget({
+    this.hint,
+    this.labelText,
+    this.tvHeading,
+    this.inputType,
+    this.textController,
+    this.hintStyle,
+    this.labelStyle,
+    this.courserColor,
+    this.validate,
+    this.onChange,
+    this.decoration,
+    this.radius,
+    this.borderColor,
+    this.focusNode,
+    this.readOnly = false,
+    this.isHeading = true,
+    this.shadow,
+    this.onFieldSubmitted,
+    this.inputAction,
+    this.height,
+    this.width,
+    this.contentPadding,
+    this.isOutined = false,
+    this.maxline = 1,
+    this.minLine = 1,
+    this.maxLength,
+    this.color,
+    this.hideBorder = true,
+    this.suffixIcon,
+    this.prefixIcon,
+    this.obscureText,
+    this.onTap,
+    this.topMargin,
+    this.inputFormatter,
+    this.errorColor,
+    this.fillColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        isHeading==true? SizedBox(
+          height: height_12,
+        ):SizedBox(),
+     isHeading==true?   Text(
+          tvHeading ?? "",
+          style: TextStyle(
+            color: Colors.black,
+            fontFamily: FontFamily.inter,
+            fontWeight: FontWeight.w600,
+          ),
+        ):SizedBox(),
+        TextFormField(
+                onTapOutside: (v) {
+                  if (v.down) {
+                    Get.focusScope?.unfocus();
+                  }
+                },
+                obscuringCharacter: '*',
+                readOnly: readOnly,
+                onTap: onTap,
+                obscureText: obscureText ?? false,
+                controller: textController,
+                focusNode: focusNode,
+                keyboardType: inputType,
+                maxLength: maxLength,
+                onChanged: onChange,
+                cursorColor: courserColor ?? colorAppColor,
+                cursorHeight: height_17,
+                inputFormatters: inputFormatter ??
+                    [
+                      FilteringTextInputFormatter(
+                          RegExp(
+                              '(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])'),
+                          allow: false),
+                    ],
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                maxLines: maxline,
+                minLines: minLine,
+                textInputAction: inputAction,
+                onFieldSubmitted: onFieldSubmitted,
+                validator: validate,
+                style: Theme.of(Get.context!).textTheme.headlineSmall!.copyWith(
+                      fontSize: font_14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                decoration: inputDecoration())
+            .marginOnly(top: topMargin ?? margin_12),
+      ],
+    );
+  }
+
+  inputDecoration() => InputDecoration(
+      counterText: "",
+      errorMaxLines: 4,
+      errorStyle: Theme.of(Get.context!).textTheme.bodySmall!.copyWith(
+          fontSize: font_10,
+          fontWeight: FontWeight.w500,
+          color: errorColor ?? Colors.red),
+      isDense: true,
+      filled: true,
+      contentPadding: contentPadding ??
+          EdgeInsets.symmetric(horizontal: margin_15, vertical: margin_15),
+      prefixIcon: prefixIcon,
+      suffixIcon: isOutined == true ? null : suffixIcon,
+      hintText: hint,
+      hintStyle: hintStyle ??
+          textStyleBody1().copyWith(
+              color: Colors.grey.shade500, fontWeight: FontWeight.w400),
+      labelText: labelText,
+      alignLabelWithHint: true,
+      labelStyle: labelStyle ??
+          TextStyle(
+              color: Colors.grey,
+              fontWeight: FontWeight.normal,
+              fontFamily: "inter"),
+      fillColor: fillColor ?? Colors.transparent,
+      border: decoration ??
+          DecoratedInputBorder(
+            shadow: BoxShadow(
+              color: shadow == true ? Colors.white70 : Colors.transparent,
+              blurRadius: 2.0,
+              spreadRadius: 2.0,
+            ),
+            child: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius ?? radius_10),
+                borderSide: BorderSide(color:borderColor?? Color(0xFFe8e8e9), width: 1.0)),
+          ),
+      focusedErrorBorder: decoration ??
+          DecoratedInputBorder(
+            child: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius ?? radius_10),
+                borderSide: BorderSide(color:borderColor?? Color(0xFFe8e8e9), width: 1.0)),
+            shadow: BoxShadow(
+              color: shadow == true ? Colors.white70 : Colors.transparent,
+              blurRadius: 2.0,
+              spreadRadius: 2.0,
+            ),
+          ),
+      errorBorder: decoration ??
+          DecoratedInputBorder(
+              child: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(radius ?? radius_10),
+                  borderSide: BorderSide(color:borderColor?? Color(0xFFe8e8e9), width: 1.0)),
+              shadow: BoxShadow(
+                color: shadow == true ? Colors.white54 : Colors.transparent,
+                blurRadius: 2.0,
+                spreadRadius: 2.0,
+              )),
+      focusedBorder: decoration ??
+          DecoratedInputBorder(
+              child: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(radius ?? radius_10),
+                  borderSide: BorderSide(color:borderColor?? Color(0xFFe8e8e9), width: 1.0)),
+              shadow: BoxShadow(
+                color: shadow == true ? Colors.white54 : Colors.transparent,
+                blurRadius: 2.0,
+                spreadRadius: 2.0,
+              )),
+      enabledBorder: decoration ??
+          DecoratedInputBorder(
+            child: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius ?? radius_10),
+                borderSide: BorderSide(color: borderColor??Color(0xFFe8e8e9), width: 1.0)),
+            shadow: BoxShadow(
+              color: shadow == true ? Colors.white54 : Colors.transparent,
+              blurRadius: 2.0,
+              spreadRadius: 2.0,
+            ),
+          ));
+}
+
+class DecoratedInputBorder extends InputBorder {
+  DecoratedInputBorder({
+    required this.child,
+    required this.shadow,
+  }) : super(borderSide: child.borderSide);
+
+  final InputBorder child;
+  final BoxShadow? shadow;
+
+  @override
+  bool get isOutline => child.isOutline;
+
+  @override
+  Path getInnerPath(Rect rect, {TextDirection? textDirection}) =>
+      child.getInnerPath(rect, textDirection: textDirection);
+
+  @override
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) =>
+      child.getOuterPath(rect, textDirection: textDirection);
+
+  @override
+  EdgeInsetsGeometry get dimensions => child.dimensions;
+
+  @override
+  InputBorder copyWith(
+      {BorderSide? borderSide,
+      InputBorder? child,
+      BoxShadow? shadow,
+      bool? isOutline}) {
+    return DecoratedInputBorder(
+      child: (child ?? this.child).copyWith(borderSide: borderSide),
+      shadow: shadow ?? this.shadow,
+    );
+  }
+
+  @override
+  ShapeBorder scale(double t) {
+    final scalledChild = child.scale(t);
+
+    return DecoratedInputBorder(
+      child: scalledChild is InputBorder ? scalledChild : child,
+      shadow: BoxShadow.lerp(null, shadow, t),
+    );
+  }
+
+  @override
+  void paint(Canvas canvas, Rect rect,
+      {double? gapStart,
+      double gapExtent = 0.0,
+      double gapPercentage = 0.0,
+      TextDirection? textDirection}) {
+    final clipPath = Path()
+      ..addRect(const Rect.fromLTWH(-5000, -5000, 10000, 10000))
+      ..addPath(getInnerPath(rect), Offset.zero)
+      ..fillType = PathFillType.evenOdd;
+    canvas.clipPath(clipPath);
+
+    final Paint paint = shadow!.toPaint();
+    final Rect bounds =
+        rect.shift(shadow!.offset).inflate(shadow!.spreadRadius);
+
+    canvas.drawPath(getOuterPath(bounds), paint);
+
+    child.paint(canvas, rect,
+        gapStart: gapStart,
+        gapExtent: gapExtent,
+        gapPercentage: gapPercentage,
+        textDirection: textDirection);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (other.runtimeType != runtimeType) return false;
+    return other is DecoratedInputBorder &&
+        other.borderSide == borderSide &&
+        other.child == child &&
+        other.shadow == shadow;
+  }
+}
