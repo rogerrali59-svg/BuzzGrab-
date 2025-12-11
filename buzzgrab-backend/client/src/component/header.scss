@@ -1,0 +1,149 @@
+.navigation-top {
+  
+    button.navbar-toggler {
+        border: 1px solid #afc6d9;
+
+        &:focus {
+            box-shadow: none;
+        }
+
+    }
+
+    .navbar-toggler-icon {
+        filter: invert(1);
+    }
+
+    // .header-logo {
+    //     img {
+    //         // border-radius: 15px;
+    //     }
+    // }
+
+    #basic-navbar-nav {
+        .nav-link {
+            color: #222;
+            font-weight: 500;
+        }
+    }
+}
+
+.header-logo {
+    img {
+        width: 70px;
+        object-fit: contain;
+        cursor: pointer;
+    }
+}
+
+.header-btn {
+    a {
+        border: 1px solid #fff;
+        padding: 10px 30px;
+        color: #005CDC;
+        background-color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: large;
+
+       
+    }
+}
+
+
+// footer
+
+footer {
+    background-color: #005CDC;
+    padding: 0px 0 20px;
+    margin-top: auto;
+    p{
+        color: #fff;
+    }
+    a{
+        color: #fff; 
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+     .footer-widgets {
+        position: relative;
+        clear: both;
+        padding: 80px 0px;
+        color: #fff;
+     
+        ul{
+            list-style: none;
+            padding-left: 0px;
+            li{
+                padding: 8px 0px;
+            }
+        }
+        .widget {
+            .button-store .custom-btn{
+                width: 200px;
+                justify-content: center ;
+            }
+            .ftr-cntct {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+                p{
+                    margin-bottom: 0px;
+                }
+                .footr-icn {
+                    display: inline-block;
+                    width: 35px;
+                    height: 35px;
+                    background: #fff;
+                    min-width: 35px;
+                    min-height: 35px;
+                    text-align: center;
+                    line-height: 33px;
+                    border-radius: 3px;
+                    color: #005CDC;
+                    margin-right: 10px;
+                }
+            }
+            h6 {
+                color: #fff;
+                margin: 0 0 25px 0;
+                font-size: 20px;
+              }
+        }
+    }
+  
+
+    .footer-logo {
+        img {
+            width: 100px;
+            filter: invert(1) brightness(100);
+        }
+
+    }
+
+    .footer-links {
+        h6 {
+            font-size: 20px;
+            line-height: 30px;
+            font-weight: 600;
+        }
+
+        ul {
+            padding-left: 0;
+
+            li {
+                list-style-type: none;
+                padding: 5px 0;
+                margin: 0;
+
+                a {
+                    text-decoration: none;
+                    color: #005CDC;
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+}

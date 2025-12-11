@@ -1,0 +1,6816 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "buzzgrab API's",
+    "description": "API documentation for buzzgrab Project"
+  },
+  "host": "192.168.12.148:2316",
+  "basePath": "/api/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Enter your bearer token in the format **Bearer &lt;token>**"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to signup a user.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fullName": {
+                  "type": "string",
+                  "example": "john smith"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "john@in.in"
+                },
+                "countryCode": {
+                  "type": "string",
+                  "example": "+91"
+                },
+                "mobile": {
+                  "type": "string",
+                  "example": "2525252525"
+                },
+                "dob": {
+                  "type": "string",
+                  "example": "05-10-2000"
+                },
+                "gender": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "Admin@123"
+                },
+                "IOSCode": {
+                  "type": "string",
+                  "example": "IN"
+                },
+                "roleId": {
+                  "type": "number",
+                  "example": 3
+                }
+              },
+              "required": [
+                "fullName",
+                "email",
+                "countryCode",
+                "mobile",
+                "dob",
+                "gender",
+                "password",
+                "IOSCode",
+                "roleId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User Signup Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/verifyOtp": {
+      "put": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to signup a user.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": ""
+                },
+                "otp": {
+                  "type": "string",
+                  "example": ""
+                },
+                "mobile": {
+                  "type": "string",
+                  "example": ""
+                },
+                "countryCode": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "email",
+                "otp",
+                "mobile",
+                "countryCode"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Otp verified successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/resendOtp": {
+      "put": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to resend Otp .",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "john@in.in"
+                },
+                "mobile": {
+                  "type": "string",
+                  "example": "2525252525"
+                },
+                "countryCode": {
+                  "type": "string",
+                  "example": "+91"
+                }
+              },
+              "required": [
+                "email",
+                "mobile",
+                "countryCode"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Otp resend successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to signup a user.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": ""
+                },
+                "password": {
+                  "type": "string",
+                  "example": ""
+                },
+                "roleId": {
+                  "type": "number",
+                  "example": 1
+                }
+              },
+              "required": [
+                "email",
+                "password",
+                "roleId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User SignIn Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/userLogin": {
+      "post": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to signup a user.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "john@in.in"
+                },
+                "mobile": {
+                  "type": "string",
+                  "example": "2525252525"
+                },
+                "countryCode": {
+                  "type": "string",
+                  "example": "+91"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "Admin@123"
+                },
+                "roleId": {
+                  "type": "string",
+                  "example": "3"
+                },
+                "deviceName": {
+                  "type": "string",
+                  "example": "ios"
+                },
+                "deviceToken": {
+                  "type": "string",
+                  "example": "123"
+                },
+                "deviceType": {
+                  "type": "number",
+                  "example": 1
+                }
+              },
+              "required": [
+                "email",
+                "mobile",
+                "countryCode",
+                "password",
+                "roleId",
+                "deviceName",
+                "deviceToken",
+                "deviceType"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User SignIn Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/forgotPassword": {
+      "put": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to signup a user.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": ""
+                },
+                "mobile": {
+                  "type": "string",
+                  "example": ""
+                },
+                "countryCode": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "email",
+                "mobile",
+                "countryCode"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Otp has been send to your phone no."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/resetPassword": {
+      "put": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to signup a user.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": ""
+                },
+                "password": {
+                  "type": "string",
+                  "example": ""
+                },
+                "mobile": {
+                  "type": "string",
+                  "example": ""
+                },
+                "countryCode": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "email",
+                "password",
+                "mobile",
+                "countryCode"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Otp has been send to your phone no."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/changePassword": {
+      "put": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to signup a user.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "oldPassword": {
+                  "type": "string",
+                  "example": ""
+                },
+                "password": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "oldPassword",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User Change Password Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/auth/profile": {
+      "get": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to signup a user.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "User Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/auth/editProfile": {
+      "put": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to edit user detail.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "profileImg",
+            "in": "formData",
+            "type": "file",
+            "description": "profileImg"
+          },
+          {
+            "name": "frontImg",
+            "in": "formData",
+            "type": "file",
+            "description": "frontImg"
+          },
+          {
+            "name": "backImg",
+            "in": "formData",
+            "type": "file",
+            "description": "backImg"
+          },
+          {
+            "name": "liveSelfyImg",
+            "in": "formData",
+            "type": "file",
+            "description": "liveSelfyImg"
+          },
+          {
+            "name": "fullName",
+            "in": "formData",
+            "type": "string",
+            "description": "Enter fullName"
+          },
+          {
+            "name": "countryCode",
+            "in": "formData",
+            "type": "string",
+            "description": "Enter countryCode"
+          },
+          {
+            "name": "mobile",
+            "in": "formData",
+            "type": "number",
+            "description": "Enter mobile"
+          },
+          {
+            "name": "IOSCode",
+            "in": "formData",
+            "type": "string",
+            "description": "Enter IOSCode"
+          },
+          {
+            "name": "gender",
+            "in": "formData",
+            "type": "number",
+            "description": "gender"
+          },
+          {
+            "name": "dob",
+            "in": "formData",
+            "type": "string",
+            "description": "dob"
+          },
+          {
+            "name": "longitude",
+            "in": "formData",
+            "type": "string",
+            "description": "longitude"
+          },
+          {
+            "name": "latitude",
+            "in": "formData",
+            "type": "string",
+            "description": "latitude"
+          },
+          {
+            "name": "address",
+            "in": "formData",
+            "type": "string",
+            "description": "address"
+          },
+          {
+            "name": "vehicleImg",
+            "in": "formData",
+            "type": "file",
+            "description": "vehicleImg"
+          },
+          {
+            "name": "vehicleRegistrationImg",
+            "in": "formData",
+            "type": "file",
+            "description": "vehicleRegistrationImg"
+          },
+          {
+            "name": "insuranceImg",
+            "in": "formData",
+            "type": "file",
+            "description": "insuranceImg"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User Updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to user logout.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "User Logout successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/auth/deleteAccount": {
+      "put": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to user Delete Account.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "User Logout successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/subscription-plan/add": {
+      "post": {
+        "tags": [
+          "SUBSCRIPTION_PLAN"
+        ],
+        "description": "Endpoint to add stripe.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": ""
+                },
+                "planType": {
+                  "type": "number",
+                  "example": 1
+                },
+                "currency": {
+                  "type": "string",
+                  "example": ""
+                },
+                "amount": {
+                  "type": "number",
+                  "example": 0
+                },
+                "features": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "name",
+                "planType",
+                "currency",
+                "amount",
+                "features"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "stripe added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/subscription-plan/list": {
+      "get": {
+        "tags": [
+          "SUBSCRIPTION_PLAN"
+        ],
+        "description": "Endpoint to get stripe list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "stripe list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/subscription-plan/detail/{id}": {
+      "get": {
+        "tags": [
+          "SUBSCRIPTION_PLAN"
+        ],
+        "description": "Endpoint to delete stripe.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "stripe delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/subscription-plan/updateState/{id}": {
+      "put": {
+        "tags": [
+          "SUBSCRIPTION_PLAN"
+        ],
+        "description": "Endpoint to change stripe state.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "stripe updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/subscription-plan/update/{id}": {
+      "put": {
+        "tags": [
+          "SUBSCRIPTION_PLAN"
+        ],
+        "description": "Endpoint to update TWILIO.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": ""
+                },
+                "planType": {
+                  "type": "number",
+                  "example": 1
+                },
+                "currency": {
+                  "type": "string",
+                  "example": ""
+                },
+                "amount": {
+                  "type": "number",
+                  "example": 0
+                },
+                "features": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "name",
+                "planType",
+                "currency",
+                "amount",
+                "features"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/subscription-plan/delete/{id}": {
+      "delete": {
+        "tags": [
+          "SUBSCRIPTION_PLAN"
+        ],
+        "description": "Endpoint to delete stripe.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "stripe delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/cms/add": {
+      "post": {
+        "tags": [
+          "CMS"
+        ],
+        "description": "Endpoint to add cms.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "image",
+            "in": "formData",
+            "type": "file",
+            "description": "image"
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "type": "string",
+            "description": "Enter title"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "description": "description"
+          },
+          {
+            "name": "typeId",
+            "in": "formData",
+            "type": "number",
+            "description": "typeId"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/cms/list": {
+      "get": {
+        "tags": [
+          "CMS"
+        ],
+        "description": "Endpoint to get csm list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/cms/detail/{id}": {
+      "get": {
+        "tags": [
+          "CMS"
+        ],
+        "description": "Endpoint to get single cms.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/cms/update/{id}": {
+      "put": {
+        "tags": [
+          "CMS"
+        ],
+        "description": "Endpoint to update single cms.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "in": "formData",
+            "type": "file",
+            "description": "image"
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "type": "string",
+            "description": "Enter title"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "description": "description"
+          },
+          {
+            "name": "typeId",
+            "in": "formData",
+            "type": "number",
+            "description": "typeId"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/cms/updateState/{id}": {
+      "put": {
+        "tags": [
+          "CMS"
+        ],
+        "description": "Endpoint to change faq state.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/cms/delete/{id}": {
+      "delete": {
+        "tags": [
+          "CMS"
+        ],
+        "description": "Endpoint to get delete cms.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ deleted successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/faq/add": {
+      "post": {
+        "tags": [
+          "FAQ"
+        ],
+        "description": "Endpoint to add faq.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "question": {
+                  "type": "string",
+                  "example": ""
+                },
+                "answer": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "question",
+                "answer"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/faq/list": {
+      "get": {
+        "tags": [
+          "FAQ"
+        ],
+        "description": "Endpoint to get faq list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/faq/detail/{id}": {
+      "get": {
+        "tags": [
+          "FAQ"
+        ],
+        "description": "Endpoint to get single faq.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/faq/edit/{id}": {
+      "put": {
+        "tags": [
+          "FAQ"
+        ],
+        "description": "Endpoint to update single faq.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "question": {
+                  "type": "string",
+                  "example": ""
+                },
+                "answer": {
+                  "type": "string",
+                  "example": ""
+                },
+                "stateId": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "question",
+                "answer",
+                "stateId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/faq/updateState/{id}": {
+      "put": {
+        "tags": [
+          "FAQ"
+        ],
+        "description": "Endpoint to change faq state.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/faq/delete/{id}": {
+      "delete": {
+        "tags": [
+          "FAQ"
+        ],
+        "description": "Endpoint to delete faq.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ deleted successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/search/add": {
+      "post": {
+        "tags": [
+          "SEARCH"
+        ],
+        "description": "Endpoint to add faq.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "search": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "search"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/search/list": {
+      "get": {
+        "tags": [
+          "SEARCH"
+        ],
+        "description": "Endpoint to get faq list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/search/detail/{id}": {
+      "get": {
+        "tags": [
+          "SEARCH"
+        ],
+        "description": "Endpoint to get single faq.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/search/delete/{id}": {
+      "delete": {
+        "tags": [
+          "SEARCH"
+        ],
+        "description": "Endpoint to delete faq.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ deleted successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/user/add": {
+      "post": {
+        "tags": [
+          "ADMIN"
+        ],
+        "description": "Endpoint to change faq state.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/user/edit/{id}": {
+      "put": {
+        "tags": [
+          "ADMIN"
+        ],
+        "description": "Endpoint to edit user.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User Updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/user/list": {
+      "get": {
+        "tags": [
+          "ADMIN"
+        ],
+        "description": "Endpoint to get user list",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Enter state.",
+            "type": "string"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter search.",
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Users list found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/user/view/{id}": {
+      "get": {
+        "tags": [
+          "ADMIN"
+        ],
+        "description": "Endpoint to get user detail.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/user/updateState/{id}": {
+      "put": {
+        "tags": [
+          "ADMIN"
+        ],
+        "description": "Endpoint to change faq state.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "stateId": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "stateId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/auth/user/verifyFrontImg/{id}": {
+      "put": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to signup a user.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User SignIn Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/admin/auth/user/verifyBackImg/{id}": {
+      "put": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to signup a user.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User SignIn Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/admin/auth/user/verifySelfImg/{id}": {
+      "put": {
+        "tags": [
+          "USER-AUTHENTICATION"
+        ],
+        "description": "Endpoint to signup a user.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User SignIn Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/admin/user/verify-user/{id}": {
+      "put": {
+        "tags": [
+          "ADMIN"
+        ],
+        "description": "Endpoint to change faq state.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/user/ban/{id}": {
+      "put": {
+        "tags": [
+          "ADMIN"
+        ],
+        "description": "Endpoint to change faq state.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "reason": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "reason"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/apiLogs/createCrash": {
+      "post": {
+        "tags": [
+          "CRASH"
+        ],
+        "description": "Endpoint to get Error logs",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errorCode": {
+                  "type": "string",
+                  "example": ""
+                },
+                "error": {
+                  "type": "string",
+                  "example": ""
+                },
+                "ip": {
+                  "type": "string",
+                  "example": ""
+                },
+                "link": {
+                  "type": "string",
+                  "example": ""
+                },
+                "errorName": {
+                  "type": "string",
+                  "example": ""
+                },
+                "refererLink": {
+                  "type": "string",
+                  "example": ""
+                },
+                "headers": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "errorCode",
+                "error",
+                "ip",
+                "link",
+                "errorName",
+                "refererLink",
+                "headers"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/apiLogs/crashList": {
+      "get": {
+        "tags": [
+          "CRASH"
+        ],
+        "description": "Endpoint to get Error logs",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "Data Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/dashboard/count": {
+      "get": {
+        "tags": [
+          "DASHBOARD"
+        ],
+        "description": "Endpoint to get provider dashboard count.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "Provider dashbaord Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/dashboard/graphData/{year}": {
+      "get": {
+        "tags": [
+          "DASHBOARD"
+        ],
+        "description": "Endpoint to delete Error logs",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/logs/errorList": {
+      "get": {
+        "tags": [
+          "LOGS"
+        ],
+        "description": "Endpoint to get Error logs",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "Data Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/logs/errorView/{id}": {
+      "get": {
+        "tags": [
+          "LOGS"
+        ],
+        "description": "Endpoint to delete Error logs",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/logs/deleteAll": {
+      "delete": {
+        "tags": [
+          "LOGS"
+        ],
+        "description": "Endpoint to delete Error logs",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "Data Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/logs/delete/{id}": {
+      "delete": {
+        "tags": [
+          "LOGS"
+        ],
+        "description": "Endpoint to delete email.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Email delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/emailLogs/list": {
+      "get": {
+        "tags": [
+          "EMAIL LOG"
+        ],
+        "description": "Endpoint to get email list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Enter state.",
+            "type": "string"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter search.",
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "email list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/emailLogs/view/{id}": {
+      "get": {
+        "tags": [
+          "EMAIL LOG"
+        ],
+        "description": "Endpoint to view email details.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "email details found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/emailLogs/delete/{id}": {
+      "delete": {
+        "tags": [
+          "EMAIL LOG"
+        ],
+        "description": "Endpoint to delete email.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Email delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/emailLogs/deleteAll": {
+      "delete": {
+        "tags": [
+          "EMAIL LOG"
+        ],
+        "description": "Endpoint to delete email.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "Emails delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/loginActivity/list": {
+      "get": {
+        "tags": [
+          "LOGIN_HISTORY"
+        ],
+        "description": "Endpoint to get login history.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "login history found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/loginActivity/details/{id}": {
+      "get": {
+        "tags": [
+          "LOGIN_HISTORY"
+        ],
+        "description": "Endpoint to view login activity details.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "login activity details found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/loginActivity/deleteAll": {
+      "delete": {
+        "tags": [
+          "LOGIN_HISTORY"
+        ],
+        "description": "Endpoint to delete error log.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "error log delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/loginActivity/delete/{id}": {
+      "delete": {
+        "tags": [
+          "LOGIN_HISTORY"
+        ],
+        "description": "Endpoint to delete email.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Email delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/pages/cms/{typeId}": {
+      "get": {
+        "tags": [
+          "STATIC PAGES"
+        ],
+        "description": "Endpoint to get t&c,privacy pages.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "typeId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/pages/faq": {
+      "get": {
+        "tags": [
+          "STATIC PAGES"
+        ],
+        "description": "Endpoint to get faq list.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "Data Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/contactUs/add": {
+      "post": {
+        "tags": [
+          "CONTACTUS"
+        ],
+        "description": "Endpoint to add contactus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fullName": {
+                  "type": "string",
+                  "example": ""
+                },
+                "email": {
+                  "type": "string",
+                  "example": ""
+                },
+                "message": {
+                  "type": "string",
+                  "example": ""
+                },
+                "phoneNumber": {
+                  "type": "string",
+                  "example": ""
+                },
+                "countryCode": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "fullName",
+                "email",
+                "message",
+                "phoneNumber",
+                "countryCode"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "contactus added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/admin/contactUs/list": {
+      "get": {
+        "tags": [
+          "CONTACTUS"
+        ],
+        "description": "Endpoint to get contactus list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Enter state.",
+            "type": "string"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter state.",
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "contactus list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/contactus/view/{id}": {
+      "get": {
+        "tags": [
+          "CONTACTUS"
+        ],
+        "description": "Endpoint to view contactus details.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "contactus details found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/contactus/delete/{id}": {
+      "delete": {
+        "tags": [
+          "CONTACTUS"
+        ],
+        "description": "Endpoint to delete conatcus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "conatcus delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/contactUs/reply/{id}": {
+      "put": {
+        "tags": [
+          "CONTACTUS"
+        ],
+        "description": "Endpoint To change-state for Contact-us Detail",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "reply": {
+                  "type": "string",
+                  "example": "Not Good"
+                }
+              },
+              "required": [
+                "reply"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Updated Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/user/contactUs/list": {
+      "get": {
+        "tags": [
+          "ADMIN_CONTACTUS"
+        ],
+        "description": "Endpoint to get contactus list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter state.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "contactus list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/admin/adminContactUs/add": {
+      "post": {
+        "tags": [
+          "ADMIN_CONTACTUS"
+        ],
+        "description": "Endpoint to add contactus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": ""
+                },
+                "address": {
+                  "type": "string",
+                  "example": ""
+                },
+                "facebookLink": {
+                  "type": "string",
+                  "example": ""
+                },
+                "instaLink": {
+                  "type": "string",
+                  "example": ""
+                },
+                "twitterLink": {
+                  "type": "string",
+                  "example": ""
+                },
+                "linkedinLink": {
+                  "type": "string",
+                  "example": ""
+                },
+                "mobile": {
+                  "type": "string",
+                  "example": ""
+                },
+                "countryCode": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "email",
+                "address",
+                "facebookLink",
+                "instaLink",
+                "twitterLink",
+                "linkedinLink",
+                "mobile",
+                "countryCode"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "contactus added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/adminContactUs/update/{id}": {
+      "put": {
+        "tags": [
+          "ADMIN_CONTACTUS"
+        ],
+        "description": "Endpoint to add contactus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": ""
+                },
+                "address": {
+                  "type": "string",
+                  "example": ""
+                },
+                "facebookLink": {
+                  "type": "string",
+                  "example": ""
+                },
+                "instaLink": {
+                  "type": "string",
+                  "example": ""
+                },
+                "twitterLink": {
+                  "type": "string",
+                  "example": ""
+                },
+                "linkedinLink": {
+                  "type": "string",
+                  "example": ""
+                },
+                "mobile": {
+                  "type": "string",
+                  "example": ""
+                },
+                "countryCode": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "email",
+                "address",
+                "facebookLink",
+                "instaLink",
+                "twitterLink",
+                "linkedinLink",
+                "mobile",
+                "countryCode"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "contactus added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/adminContactUs/list": {
+      "get": {
+        "tags": [
+          "ADMIN_CONTACTUS"
+        ],
+        "description": "Endpoint to get contactus list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter state.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "contactus list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/adminContactUs/delete/{id}": {
+      "delete": {
+        "tags": [
+          "ADMIN_CONTACTUS"
+        ],
+        "description": "Endpoint to delete conatcus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "conatcus delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/smtp/add": {
+      "post": {
+        "tags": [
+          "SMTP"
+        ],
+        "description": "Endpoint to add contactus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": ""
+                },
+                "password": {
+                  "type": "string",
+                  "example": ""
+                },
+                "host": {
+                  "type": "string",
+                  "example": ""
+                },
+                "port": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "email",
+                "password",
+                "host",
+                "port"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "contactus added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/smtp/list": {
+      "get": {
+        "tags": [
+          "SMTP"
+        ],
+        "description": "Endpoint to get contactus list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "contactus list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/smtp/delete/{id}": {
+      "delete": {
+        "tags": [
+          "SMTP"
+        ],
+        "description": "Endpoint to delete conatcus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "conatcus delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/smtp/view/{id}": {
+      "get": {
+        "tags": [
+          "SMTP"
+        ],
+        "description": "Endpoint to delete conatcus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "conatcus delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/smtp/updateState/{id}": {
+      "put": {
+        "tags": [
+          "SMTP"
+        ],
+        "description": "Endpoint to change faq state.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/smtp/update/{id}": {
+      "put": {
+        "tags": [
+          "SMTP"
+        ],
+        "description": "Endpoint to update SMTP.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": ""
+                },
+                "password": {
+                  "type": "string",
+                  "example": ""
+                },
+                "host": {
+                  "type": "string",
+                  "example": ""
+                },
+                "port": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "email",
+                "password",
+                "host",
+                "port"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/twillio/add": {
+      "post": {
+        "tags": [
+          "TWILLIO"
+        ],
+        "description": "Endpoint to add twilio.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sid": {
+                  "type": "string",
+                  "example": ""
+                },
+                "token": {
+                  "type": "string",
+                  "example": ""
+                },
+                "number": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "sid",
+                "token",
+                "number"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "twilio added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/twillio/list": {
+      "get": {
+        "tags": [
+          "TWILLIO"
+        ],
+        "description": "Endpoint to get twilio list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "twilio list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/twillio/delete/{id}": {
+      "delete": {
+        "tags": [
+          "TWILLIO"
+        ],
+        "description": "Endpoint to delete twilio.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "twilio delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/twillio/view/{id}": {
+      "get": {
+        "tags": [
+          "TWILLIO"
+        ],
+        "description": "Endpoint to delete twilio.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "twilio delete successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/twillio/updateState/{id}": {
+      "put": {
+        "tags": [
+          "TWILLIO"
+        ],
+        "description": "Endpoint to change twilio state.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "twilio updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/twillio/update/{id}": {
+      "put": {
+        "tags": [
+          "TWILLIO"
+        ],
+        "description": "Endpoint to update TWILIO.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sid": {
+                  "type": "string",
+                  "example": ""
+                },
+                "token": {
+                  "type": "string",
+                  "example": ""
+                },
+                "number": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "sid",
+                "token",
+                "number"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/user/graphUserReport/{year}": {
+      "get": {
+        "tags": [
+          "REPORTS"
+        ],
+        "description": "Endpoint to delete Error logs",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/subscription/graphSubscriptionReport/{year}": {
+      "get": {
+        "tags": [
+          "REPORTS"
+        ],
+        "description": "Endpoint to delete Error logs",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/banner/add": {
+      "post": {
+        "tags": [
+          "Banner"
+        ],
+        "description": "Endpoint to add cms.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "bannerImg",
+            "in": "formData",
+            "type": "file",
+            "description": "image"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/banner/list": {
+      "get": {
+        "tags": [
+          "Banner"
+        ],
+        "description": "Endpoint to get csm list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/banner/detail/{id}": {
+      "get": {
+        "tags": [
+          "Banner"
+        ],
+        "description": "Endpoint to get single cms.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/banner/update/{id}": {
+      "put": {
+        "tags": [
+          "Banner"
+        ],
+        "description": "Endpoint to update single cms.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bannerImg",
+            "in": "formData",
+            "type": "file",
+            "description": "image"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/banner/updateState/{id}": {
+      "put": {
+        "tags": [
+          "Banner"
+        ],
+        "description": "Endpoint to change faq state.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/banner/delete/{id}": {
+      "delete": {
+        "tags": [
+          "Banner"
+        ],
+        "description": "Endpoint to get delete cms.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ deleted successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/banner/activeBanners": {
+      "get": {
+        "tags": [
+          "Banner"
+        ],
+        "description": "Endpoint to get csm list.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/admin/notification": {
+      "get": {
+        "tags": [
+          "NOTIFICATION"
+        ],
+        "description": "Endpoint to get notifications.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Notifications found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/notification/view/{id}": {
+      "get": {
+        "tags": [
+          "NOTIFICATION"
+        ],
+        "description": "Endpoint to get notifications.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Notifications found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/notification/count": {
+      "get": {
+        "tags": [
+          "NOTIFICATION"
+        ],
+        "description": "Endpoint to get notifications.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "Notifications found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/deleteAll": {
+      "delete": {
+        "tags": [
+          "NOTIFICATION"
+        ],
+        "description": "Endpoint to get notifications.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "Notifications found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/notification": {
+      "get": {
+        "tags": [
+          "NOTIFICATION"
+        ],
+        "description": "Endpoint to get notifications.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/notification/view/{id}": {
+      "get": {
+        "tags": [
+          "NOTIFICATION"
+        ],
+        "description": "Endpoint to get notifications.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Notifications found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/notification/count": {
+      "get": {
+        "tags": [
+          "NOTIFICATION"
+        ],
+        "description": "Endpoint to get notifications.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "Notifications found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/notification/deleteAll": {
+      "delete": {
+        "tags": [
+          "NOTIFICATION"
+        ],
+        "description": "Endpoint to delete Error logs",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "Data Found Successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/notification/toggle": {
+      "put": {
+        "tags": [
+          "NOTIFICATION"
+        ],
+        "description": "Endpoint to toggle notifications.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "Notifications found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/dateCheck/add": {
+      "post": {
+        "tags": [
+          "DATE_CHECK"
+        ],
+        "description": "Endpoint to add contactus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Add report",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "example": "2025-06-30"
+                }
+              },
+              "required": [
+                "date"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "contactus added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/dateCheck/list": {
+      "get": {
+        "tags": [
+          "DATE_CHECK"
+        ],
+        "description": "Endpoint to get login history.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "login history found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/dateCheck/view/{id}": {
+      "get": {
+        "tags": [
+          "DATE_CHECK"
+        ],
+        "description": "Endpoint to view contactus details.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Enter id.",
+            "example": "66e7cf0759160948ff3f1b90"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "contactus details found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/dateCheck/delete/{id}": {
+      "delete": {
+        "tags": [
+          "DATE_CHECK"
+        ],
+        "description": "Endpoint to delete backup.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Enter id.",
+            "example": "66e7cf0759160948ff3f1b90"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Backup deleted successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/dateCheck/list": {
+      "get": {
+        "tags": [
+          "DATE_CHECK"
+        ],
+        "description": "Endpoint to get login history.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "login history found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/category/add": {
+      "post": {
+        "tags": [
+          "CATEGORY"
+        ],
+        "description": "Endpoint to add cms.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "image",
+            "in": "formData",
+            "type": "file",
+            "description": "image"
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "type": "string",
+            "description": "Enter title"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "description": "description"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/category/list": {
+      "get": {
+        "tags": [
+          "CATEGORY"
+        ],
+        "description": "Endpoint to get csm list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/category/detail/{id}": {
+      "get": {
+        "tags": [
+          "CATEGORY"
+        ],
+        "description": "Endpoint to get single cms.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/category/update/{id}": {
+      "put": {
+        "tags": [
+          "CATEGORY"
+        ],
+        "description": "Endpoint to update single cms.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "in": "formData",
+            "type": "file",
+            "description": "image"
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "type": "string",
+            "description": "Enter title"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "description": "description"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/category/updateState/{id}": {
+      "put": {
+        "tags": [
+          "CATEGORY"
+        ],
+        "description": "Endpoint to change faq state.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/category/delete/{id}": {
+      "delete": {
+        "tags": [
+          "CATEGORY"
+        ],
+        "description": "Endpoint to get delete cms.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ deleted successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/category/activeList": {
+      "get": {
+        "tags": [
+          "CATEGORY"
+        ],
+        "description": "Endpoint to get csm list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter search.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/brand/add": {
+      "post": {
+        "tags": [
+          "BRAND_MANAGEMENT"
+        ],
+        "description": "Endpoint to add cms.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "image",
+            "in": "formData",
+            "type": "file",
+            "description": "image"
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "type": "string",
+            "description": "Enter title"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/brand/list": {
+      "get": {
+        "tags": [
+          "BRAND_MANAGEMENT"
+        ],
+        "description": "Endpoint to get csm list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter search.",
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/brand/detail/{id}": {
+      "get": {
+        "tags": [
+          "BRAND_MANAGEMENT"
+        ],
+        "description": "Endpoint to get single cms.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/brand/update/{id}": {
+      "put": {
+        "tags": [
+          "BRAND_MANAGEMENT"
+        ],
+        "description": "Endpoint to update single cms.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "in": "formData",
+            "type": "file",
+            "description": "image"
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "type": "string",
+            "description": "Enter title"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/brand/updateState/{id}": {
+      "put": {
+        "tags": [
+          "BRAND_MANAGEMENT"
+        ],
+        "description": "Endpoint to change faq state.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/brand/delete/{id}": {
+      "delete": {
+        "tags": [
+          "BRAND_MANAGEMENT"
+        ],
+        "description": "Endpoint to get delete cms.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ deleted successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/brand/activeList": {
+      "get": {
+        "tags": [
+          "BRAND_MANAGEMENT"
+        ],
+        "description": "Endpoint to get csm list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter search.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CMS found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/promotion/add": {
+      "post": {
+        "tags": [
+          "PROMOTION_CODE"
+        ],
+        "description": "Endpoint to order.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "promoCode": {
+                  "type": "string",
+                  "example": ""
+                },
+                "discount": {
+                  "type": "string",
+                  "example": ""
+                },
+                "minPurchaseAmount": {
+                  "type": "string",
+                  "example": ""
+                },
+                "maxDiscountAmount": {
+                  "type": "string",
+                  "example": ""
+                },
+                "numberOfUsed": {
+                  "type": "string",
+                  "example": ""
+                },
+                "numberOfUsedUser": {
+                  "type": "string",
+                  "example": ""
+                },
+                "forFreeDelivery": {
+                  "type": "string",
+                  "example": ""
+                },
+                "startDate": {
+                  "type": "string",
+                  "example": ""
+                },
+                "endDate": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "promoCode",
+                "discount",
+                "minPurchaseAmount",
+                "maxDiscountAmount",
+                "numberOfUsed",
+                "numberOfUsedUser",
+                "forFreeDelivery",
+                "startDate",
+                "endDate"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "order added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/promotion/list": {
+      "get": {
+        "tags": [
+          "PROMOTION_CODE"
+        ],
+        "description": "Endpoint to get address list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter search.",
+            "type": "string"
+          },
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "address list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/promotion/update/{id}": {
+      "put": {
+        "tags": [
+          "PROMOTION_CODE"
+        ],
+        "description": "Endpoint to order.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "promoCode": {
+                  "type": "string",
+                  "example": ""
+                },
+                "discount": {
+                  "type": "string",
+                  "example": ""
+                },
+                "minPurchaseAmount": {
+                  "type": "string",
+                  "example": ""
+                },
+                "maxDiscountAmount": {
+                  "type": "string",
+                  "example": ""
+                },
+                "numberOfUsed": {
+                  "type": "string",
+                  "example": ""
+                },
+                "numberOfUsedUser": {
+                  "type": "string",
+                  "example": ""
+                },
+                "forFreeDelivery": {
+                  "type": "string",
+                  "example": ""
+                },
+                "startDate": {
+                  "type": "string",
+                  "example": ""
+                },
+                "endDate": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "promoCode",
+                "discount",
+                "minPurchaseAmount",
+                "maxDiscountAmount",
+                "numberOfUsed",
+                "numberOfUsedUser",
+                "forFreeDelivery",
+                "startDate",
+                "endDate"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "order added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/promotion/updateState/{id}": {
+      "put": {
+        "tags": [
+          "PROMOTION_CODE"
+        ],
+        "description": "Endpoint to change faq state.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Enter id.",
+            "example": "66e7cf0759160948ff3f1b90"
+          },
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "number",
+            "value": 1
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "FAQ updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/promotion/detail/{id}": {
+      "get": {
+        "tags": [
+          "PROMOTION_CODE"
+        ],
+        "description": "Endpoint to cancel order.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "order cancel successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/promotion/delete/{id}": {
+      "delete": {
+        "tags": [
+          "PROMOTION_CODE"
+        ],
+        "description": "Endpoint to delete address.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "address deleted successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/promotion/applyPromoCode": {
+      "put": {
+        "tags": [
+          "PROMOTION_CODE"
+        ],
+        "description": "Endpoint to get address list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "type": "string",
+                  "example": ""
+                },
+                "promoId": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "productId",
+                "promoId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "address list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/store/add": {
+      "post": {
+        "tags": [
+          "STORE_MANAGEMENT"
+        ],
+        "description": "Endpoint to add product.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "logo",
+            "in": "formData",
+            "type": "file",
+            "description": "logo"
+          },
+          {
+            "name": "coverImg",
+            "in": "formData",
+            "type": "file",
+            "description": "coverImg"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "longitude",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "latitude",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "address",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/store/edit/{id}": {
+      "post": {
+        "tags": [
+          "STORE_MANAGEMENT"
+        ],
+        "description": "Endpoint to add product.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "logo",
+            "in": "formData",
+            "type": "file",
+            "description": "logo"
+          },
+          {
+            "name": "coverImg",
+            "in": "formData",
+            "type": "file",
+            "description": "coverImg"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "longitude",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "latitude",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "address",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/store/list": {
+      "get": {
+        "tags": [
+          "STORE_MANAGEMENT"
+        ],
+        "description": "Endpoint to get all product list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter search.",
+            "type": "string"
+          },
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/store/details/{id}": {
+      "get": {
+        "tags": [
+          "STORE_MANAGEMENT"
+        ],
+        "description": "Endpoint to get product details.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product details found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/store/updateState/{id}": {
+      "put": {
+        "tags": [
+          "STORE_MANAGEMENT"
+        ],
+        "description": "Endpoint to add contactus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "contactus added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/store/delete/{id}": {
+      "delete": {
+        "tags": [
+          "STORE_MANAGEMENT"
+        ],
+        "description": "Endpoint to get product details.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product details found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/store/subAdminList": {
+      "get": {
+        "tags": [
+          "STORE_MANAGEMENT"
+        ],
+        "description": "Endpoint to get all product list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter search.",
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/store/assignStore/{id}": {
+      "put": {
+        "tags": [
+          "STORE_MANAGEMENT"
+        ],
+        "description": "Endpoint to add contactus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "subAdmin",
+            "in": "query",
+            "description": "Enter subAdmin.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "contactus added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/store/unAssign/{id}": {
+      "put": {
+        "tags": [
+          "STORE_MANAGEMENT"
+        ],
+        "description": "Endpoint to add contactus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "subAdmin",
+            "in": "query",
+            "description": "Enter subAdmin.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "contactus added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/store/storeList": {
+      "get": {
+        "tags": [
+          "STORE_MANAGEMENT"
+        ],
+        "description": "Endpoint to get all product list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter search.",
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/product/add": {
+      "post": {
+        "tags": [
+          "PRODUCT_MANAGEMENT"
+        ],
+        "description": "Endpoint to add product.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "productImg",
+            "in": "formData",
+            "type": "array",
+            "description": "Add productImg...",
+            "collectionFormat": "multi",
+            "items": {
+              "type": "file"
+            }
+          },
+          {
+            "name": "productName",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "ingredients",
+            "in": "formData",
+            "type": "string",
+            "description": "Some ingredients..."
+          },
+          {
+            "name": "mrp",
+            "in": "formData",
+            "type": "number",
+            "description": "Some mrp..."
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "type": "number",
+            "description": "Some discount..."
+          },
+          {
+            "name": "size",
+            "in": "formData",
+            "type": "string",
+            "description": "Some size..."
+          },
+          {
+            "name": "category",
+            "in": "formData",
+            "type": "string",
+            "description": "Some category..."
+          },
+          {
+            "name": "brand",
+            "in": "formData",
+            "type": "string",
+            "description": "Some brand..."
+          },
+          {
+            "name": "longitude",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "latitude",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "address",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/product/edit/{id}": {
+      "put": {
+        "tags": [
+          "PRODUCT_MANAGEMENT"
+        ],
+        "description": "Endpoint to add product.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productImg",
+            "in": "formData",
+            "type": "array",
+            "description": "Add productImg...",
+            "collectionFormat": "multi",
+            "items": {
+              "type": "file"
+            }
+          },
+          {
+            "name": "productName",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "ingredients",
+            "in": "formData",
+            "type": "string",
+            "description": "Some ingredients..."
+          },
+          {
+            "name": "mrp",
+            "in": "formData",
+            "type": "number",
+            "description": "Some mrp..."
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "type": "number",
+            "description": "Some discount..."
+          },
+          {
+            "name": "size",
+            "in": "formData",
+            "type": "string",
+            "description": "Some size..."
+          },
+          {
+            "name": "category",
+            "in": "formData",
+            "type": "string",
+            "description": "Some category..."
+          },
+          {
+            "name": "brand",
+            "in": "formData",
+            "type": "string",
+            "description": "Some brand..."
+          },
+          {
+            "name": "longitude",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "latitude",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "address",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          },
+          {
+            "name": "mobile",
+            "in": "formData",
+            "type": "string",
+            "description": "Some description..."
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/product/removeImage": {
+      "delete": {
+        "tags": [
+          "PRODUCT_MANAGEMENT"
+        ],
+        "description": "Endpoint to delete loan.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Enter id.",
+            "type": "string"
+          },
+          {
+            "name": "imageId",
+            "in": "query",
+            "description": "Enter imageId.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "loan deleted successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/product/list": {
+      "get": {
+        "tags": [
+          "PRODUCT_MANAGEMENT"
+        ],
+        "description": "Endpoint to get all product list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "string"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter search.",
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/product/details/{id}": {
+      "get": {
+        "tags": [
+          "PRODUCT_MANAGEMENT"
+        ],
+        "description": "Endpoint to get product details.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product details found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/product/delete/{id}": {
+      "delete": {
+        "tags": [
+          "PRODUCT_MANAGEMENT"
+        ],
+        "description": "Endpoint to get product details.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product details found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/product/updateState/{id}": {
+      "put": {
+        "tags": [
+          "PRODUCT_MANAGEMENT"
+        ],
+        "description": "Endpoint to add contactus.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stateId",
+            "in": "query",
+            "description": "Enter stateId.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "contactus added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/product/allProduct": {
+      "get": {
+        "tags": [
+          "PRODUCT_MANAGEMENT"
+        ],
+        "description": "Endpoint to get all product list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter search.",
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          },
+          {
+            "name": "categoryId",
+            "in": "query",
+            "description": "Enter categoryId.",
+            "type": "string"
+          },
+          {
+            "name": "brandId",
+            "in": "query",
+            "description": "Enter brandId.",
+            "type": "string"
+          },
+          {
+            "name": "minPrice",
+            "in": "query",
+            "description": "Enter minPrice.",
+            "type": "string"
+          },
+          {
+            "name": "maxPrice",
+            "in": "query",
+            "description": "Enter maxPrice.",
+            "type": "string"
+          },
+          {
+            "name": "minRating",
+            "in": "query",
+            "description": "Enter minRating.",
+            "type": "string"
+          },
+          {
+            "name": "maxRating",
+            "in": "query",
+            "description": "Enter maxRating.",
+            "type": "string"
+          },
+          {
+            "name": "longitude",
+            "in": "query",
+            "description": "Enter longitude.",
+            "type": "string"
+          },
+          {
+            "name": "latitude",
+            "in": "query",
+            "description": "Enter latitude.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/product/details/{id}": {
+      "get": {
+        "tags": [
+          "PRODUCT_MANAGEMENT"
+        ],
+        "description": "Endpoint to get product details.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product details found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/product/relatedProduct": {
+      "get": {
+        "tags": [
+          "PRODUCT_MANAGEMENT"
+        ],
+        "description": "Endpoint to get all product list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter search.",
+            "type": "string"
+          },
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          },
+          {
+            "name": "categoryId",
+            "in": "query",
+            "description": "Enter categoryId.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/cart/add": {
+      "post": {
+        "tags": [
+          "CART"
+        ],
+        "description": "Endpoint to add product in cart.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "type": "string",
+                  "example": "68ff099f446f75054505259a"
+                },
+                "price": {
+                  "type": "string",
+                  "example": "20"
+                },
+                "quantity": {
+                  "type": "string",
+                  "example": "2"
+                },
+                "size": {
+                  "type": "string",
+                  "example": "350ml"
+                }
+              },
+              "required": [
+                "productId",
+                "price",
+                "quantity",
+                "size"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "product added in cart successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/cart/list": {
+      "get": {
+        "tags": [
+          "CART"
+        ],
+        "description": "Endpoint to get cart list.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "cart list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/cart/removeCart/{id}": {
+      "delete": {
+        "tags": [
+          "CART"
+        ],
+        "description": "Endpoint to reomove cart.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "cart removed successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/cart/clearCart": {
+      "delete": {
+        "tags": [
+          "CART"
+        ],
+        "description": "Endpoint to reomove cart.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "cart removed successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/cart/increaseQuantity/{id}": {
+      "put": {
+        "tags": [
+          "CART"
+        ],
+        "description": "Endpoint to increase quantity.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "quantity": {
+                  "type": "string",
+                  "example": "1"
+                }
+              },
+              "required": [
+                "quantity"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "cart increased successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/cart/decreaseQuantity/{id}": {
+      "put": {
+        "tags": [
+          "CART"
+        ],
+        "description": "Endpoint to increase quantity.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "quantity": {
+                  "type": "string",
+                  "example": "1"
+                }
+              },
+              "required": [
+                "quantity"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "cart increased successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/wishlist/add": {
+      "post": {
+        "tags": [
+          "WISHLIST"
+        ],
+        "description": "Endpoint to add wishlist.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "type": "string",
+                  "example": "666fe917aa6a0a8da98cb4c3"
+                },
+                "isWishlist": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "required": [
+                "productId",
+                "isWishlist"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "vote added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/wishlist/list": {
+      "get": {
+        "tags": [
+          "WISHLIST"
+        ],
+        "description": "Endpoint to get all wish list.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "Enter pageNo.",
+            "type": "string"
+          },
+          {
+            "name": "pageLimit",
+            "in": "query",
+            "description": "Enter pageLimit.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "wish list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/address/add": {
+      "post": {
+        "tags": [
+          "ADDRESS"
+        ],
+        "description": "Endpoint to address.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": ""
+                },
+                "countryCode": {
+                  "type": "string",
+                  "example": ""
+                },
+                "mobile": {
+                  "type": "string",
+                  "example": ""
+                },
+                "house": {
+                  "type": "string",
+                  "example": ""
+                },
+                "building": {
+                  "type": "string",
+                  "example": ""
+                },
+                "landMark": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "name",
+                "countryCode",
+                "mobile",
+                "house",
+                "building",
+                "landMark"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "address added successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/address/list": {
+      "get": {
+        "tags": [
+          "ADDRESS"
+        ],
+        "description": "Endpoint to get address list.",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "address list found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/address/details/{id}": {
+      "get": {
+        "tags": [
+          "ADDRESS"
+        ],
+        "description": "Endpoint to get address details.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "address details found successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/address/edit/{id}": {
+      "put": {
+        "tags": [
+          "ADDRESS"
+        ],
+        "description": "Endpoint to update address.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": ""
+                },
+                "countryCode": {
+                  "type": "string",
+                  "example": ""
+                },
+                "mobile": {
+                  "type": "string",
+                  "example": ""
+                },
+                "house": {
+                  "type": "string",
+                  "example": ""
+                },
+                "building": {
+                  "type": "string",
+                  "example": ""
+                },
+                "landMark": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "name",
+                "countryCode",
+                "mobile",
+                "house",
+                "building",
+                "landMark"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "address updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/address/setDefault/{id}": {
+      "put": {
+        "tags": [
+          "ADDRESS"
+        ],
+        "description": "Endpoint to update address.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "title": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "isDefault": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "isDefault"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "address updated successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/address/delete/{id}": {
+      "delete": {
+        "tags": [
+          "ADDRESS"
+        ],
+        "description": "Endpoint to delete address.",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "address deleted successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    }
+  }
+}

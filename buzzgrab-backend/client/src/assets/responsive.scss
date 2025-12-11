@@ -1,0 +1,373 @@
+@media only screen and (max-width: 1579px) {
+  .dash-widget {
+    .widgetcard {
+      min-height: 124px;
+    }
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .banner {
+    .banner-right-img img {
+      width: 460px !important;
+      height: 460px !important;
+      object-fit: contain !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 1399px) {
+  .banner {
+    min-height: 100%!important;
+    padding: 60px 0px 120px!important;
+  }
+  .banner .banner-text {
+    margin-right: 0!important;
+  }
+  .section-title h3 {
+    font-size: 28px!important;
+  }
+  .features-item .feature-box h4 {
+    font-size: 20px!important;
+  }
+  .section-title {
+    padding-bottom: 40px!important;
+  }
+  .banner p {
+    font-size: 16px!important;
+    line-height: 26px!important;
+  }
+  .banner h1 {
+    font-size: 40px!important;
+    line-height: 60px!important;
+  }
+  .feature {
+    .iq-fancy-box {
+      padding: 40px 20px;
+      min-height: 400px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .banner {
+    h1 {
+      font-size: 50px;
+      line-height: 60px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .widgetcard.card3,
+  .widgetcard.card4 {
+    margin-top: 30px !important;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .dash-widget {
+    .widgetcard {
+      min-height: 124px;
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .auth-main::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    left: 0;
+    top: 0;
+  }
+  .auth-main .auth-card {
+    position: relative;
+    z-index: 9;
+  }
+  .auth-main::before {
+    width: 100%!important;
+  }
+  .contact-box {
+    margin-bottom: 0px!important;
+  }
+  .how_it_works .step_block ul li .step_number , .how_it_works .step_block ul li::before,.how_it_works .step_block ul li:first-child::after {
+    display: none!important;
+  }
+  #overview img {
+    margin-top: 40px;
+  }
+  .banner-image {
+    margin-top: 40px;
+  }
+  .banner h1 {
+    font-size: 36px !important;
+    line-height: 46px !important;
+  }
+  .banner {
+    .banner-right-img {
+      position: unset !important;
+      text-align: start !important;
+      margin-top: 40px;
+    }
+
+    .banner-right-img img {
+      width: 100% !important;
+      height: 400px !important;
+      object-fit: contain !important;
+    }
+  }
+   .about_line {
+    &:after {
+      content: none !important;
+    }
+  }
+
+  .tablet-mt {
+    margin-top: 30px;
+  }
+
+  .download-img {
+    margin-top: 40px;
+    text-align: start !important;
+  }
+
+  .banner {
+    padding-top: 150px;
+  }
+
+  .navbar-collapse {
+    background: #fff;
+    padding: 10px;
+  }
+
+  .navigation-top {
+    .nav-link {
+      color: #005CDC !important;
+    }
+
+    .header-btn a {
+      color: #005CDC !important;
+      border-color: #005CDC !important;
+    }
+  }
+
+  section {
+    padding: 40px 0 !important;
+  }
+
+  .download-txt {
+    text-align: center;
+
+    .download-btn {
+      justify-content: center;
+    }
+  }
+
+  .navigation-top {
+    .navbar-collapse {
+      padding: 20px;
+    }
+  }
+
+  .header-btn {
+    margin-top: 15px;
+  }
+  .breadcrum-main {
+    padding: 50px 0 50px 0 !important;
+  }
+  .admin-profile {
+    img {
+      width: 200px !important;
+      height: 200px !important;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .mobile-mt {
+    margin-top: 30px;
+  }
+
+  .faq-main {
+    .faq-heading {
+      h2 {
+        font-size: 35px !important;
+        color: #000 !important;
+        line-height: 45px !important;
+        font-weight: 900 !important;
+      }
+    }
+  }
+
+  .download-main {
+    .download-heading {
+      h2 {
+        font-size: 35px !important;
+        line-height: 45px !important;
+      }
+    }
+  }
+
+  .how-work-heading {
+    h2 {
+      font-size: 35px !important;
+      line-height: 45px !important;
+    }
+  }
+
+  .screenshoot-heading {
+    h2 {
+      font-size: 35px !important;
+      line-height: 45px !important;
+    }
+  }
+
+  .download-main {
+    .download-txt {
+      h3 {
+        font-size: 30px !important;
+        line-height: 40px !important;
+      }
+    }
+  }
+  .download-main {
+    .download-img {
+      img {
+        height: auto !important;
+      }
+    }
+  }
+
+  section {
+    padding: 40px 0 !important;
+  }
+
+  .screenshoot-box {
+    .swiper-pagination {
+      margin-top: 26px;
+    }
+  }
+
+  .testimonial-txt {
+    .swiper-pagination {
+      margin-top: 26px;
+    }
+  }
+
+  .download-img {
+    margin-top: 20px;
+  }
+
+  .testimonila-main {
+    .testimonial-heading {
+      h2 {
+        font-size: 35px !important;
+        line-height: 45px !important;
+      }
+    }
+  }
+
+  .faq-main {
+    .accordion-button {
+      font-size: 16px !important;
+      line-height: 26px !important;
+      padding: 10px;
+    }
+  }
+
+  .admin-footer.close {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+  .widgetcard.card2{
+    margin-top: 30px !important;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .breadcrum-main .breadcrum-text h1 {
+    font-size: 30px!important;
+    line-height: 40px!important;
+  }
+  .how_it_works .step_block ul li {
+    margin-bottom: 30px!important;
+  }
+  .how_it_works .step_block ul li .step_text h4 {
+    font-size: 22px!important;
+  }
+
+  .parallax .counter-card {
+    margin-bottom: 15px;
+  }
+  .parallax .counter-card .info h3 {
+    font-size: 35px!important;
+    line-height: 35px!important;
+    margin: 0 0 10px 0!important;
+  }
+  .parallax .counter-card .icon svg {
+    margin-bottom: 15px!important;
+  }
+  .empty-100 {
+    height: 40px!important;
+  }
+  footer .footer-widgets ul li {
+    padding: 5px 0px!important;
+  }
+  footer .footer-widgets .widget h6 {
+    margin: 0 0 10px 0!important;
+    font-size: 18px!important;
+  }
+  footer .footer-widgets {
+    padding: 40px 0px!important;
+  }
+  .button-store .custom-btn {
+    padding: 5px 25px!important;
+  }
+  .parallax .counter .counter-content h5 {
+    font-size: 42px!important;
+    line-height: 40px!important;
+    margin: 0 0 10px 0!important;
+  }
+  .button-store .custom-btn p span {
+    font-size: 15px!important;
+  }
+  .button-store .custom-btn p {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    padding-bottom: 0px !important;
+  }
+  .section-title {
+    padding-bottom: 20px !important;
+  }
+  .counter-content {
+    margin-bottom: 25px !important;
+  }
+  .parallax .counter .icon svg {
+    margin-bottom: 10px!important;
+  }
+  .features-item .feature-box h4 {
+    font-size: 18px !important;
+  }
+  .section-title h3 {
+    font-size: 25px !important;
+  }
+  .banner-text p {
+    padding-bottom: 10px !important;
+  }
+  .banner h1 {
+    font-size: 32px !important;
+    line-height: 42px !important;
+  }
+  .onmobile-center {
+    justify-content: center;
+  }
+  .onmobile {
+    flex-wrap: wrap;
+    .form-control {
+      width: 100% !important;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  ui:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    env_file: ./client/.env
+    ports:
+      - "2315:80"
+    restart: always    # <-- Added for UI service
+
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    env_file: ./server/.env
+    volumes:
+      - ./uploads:/uploads
+    ports:
+      - "2316:2316"
+    depends_on:
+      - db
+    restart: always    # Already present ✅
+
+  db:
+    image: mongo
+    ports:
+      - "27019:27017"
+    volumes:
+      - ./mongo-data:/data/db
+    restart: always    # Already present ✅
+
+  lb:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - /etc/letsencrypt/live/buzzgrabit.com/fullchain.pem:/etc/nginx/fullchain.pem:ro
+      - /etc/letsencrypt/live/buzzgrabit.com/privkey.pem:/etc/nginx/privkey.pem:ro
+    depends_on:
+      - api
+      - ui
+    ports:
+      - '80:80'
+      - "443:443"
+    restart: always    # <-- Added for load balancer (nginx)
+

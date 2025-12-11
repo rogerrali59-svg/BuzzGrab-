@@ -1,0 +1,115 @@
+#!/usr/bin/env node
+
+/** 
+@copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+@author     : Shiv Charan Panjeta < shiv@toxsl.com >
+
+All Rights Reserved.
+Proprietary and confidential :  All information contained herein is, and remains
+the property of ToXSL Technologies Pvt. Ltd. and its partners.
+Unauthorized copying of this file, via any medium is strictly prohibited.
+*/
+
+/**
+ * Module dependencies.
+ */
+
+var app = require("../app");
+var debug = require("debug")("base-node-project-setup:server");
+var http = require("http");
+let logger = require("winston");
+let dotenv = require("dotenv");
+dotenv.config();
+require("../config/db/dbConfig");
+const cluster = require("cluster");
+const os = require("os");
+const numCPUs = os.cpus().length;
+
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+// if (cluster.isMaster) {
+//   console.log(`Master process ${process.pid} is running`);
+
+//   for (let i = 0; i < numCPUs; i++) {
+//     cluster.fork();
+//   }
+
+//   cluster.on("exit", (worker, code, signal) => {
+//     console.log(`Worker process ${worker.process.pid} died. Restarting...`);
+//     cluster.fork();
+//   });
+// } else {
+//   var port = normalizePort(process.env.PORT || "2254");
+//   logger.info(`Worker process ${process.pid} and server running on ${port}`);
+//   app.set("port", port);
+// }
+
+var port = normalizePort(process.env.PORT || "2035");
+app.set("port", port);
+
+/**
+ * Create HTTP server.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+var server = http.createServer(app);
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port, () => {
+  logger.info(`server running on ${process.env.LIVE_IP}:${port}/api`);
+  logger.info(`swagger url link ${process.env.SWAGGER_SERVER_IP}/api/api-doc`);
+});
+server.on("error", onError);
+server.on("listening", onListening);
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== "listen") {
+    throw error;
+  }
+  var bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case "EACCES":
+      logger.warn(bind + " requires elevated privileges");
+      process.exit(1);
+    case "EADDRINUSE":
+      logger.warn(bind + " is already in use");
+      process.exit(1);
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+  debug("Listening on " + bind);
+}

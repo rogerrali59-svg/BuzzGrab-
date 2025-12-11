@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        <%= title %>
+    </title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #333;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #007bff;
+            padding: 1rem 2rem;
+        }
+
+        nav .navbar-brand {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Container */
+        .container {
+            max-width: 746px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        /* Alert */
+        .alert {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.6rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, color 0.3s;
+            margin: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        .btn-outline-secondary {
+            background: transparent;
+            border: 2px solid #6c757d;
+            color: #6c757d;
+        }
+
+        .btn-outline-secondary:hover {
+            background: #6c757d;
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .card h1 {
+                font-size: 2rem;
+            }
+
+            .card p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a class="navbar-brand" href="#">
+            <%= title %>
+        </a>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h1>Welcome to the <%= title %> Server</h1>
+            <p>
+                <%= project_description %>
+            </p>
+
+            <% if (typeof serverStatus !=='undefined' ) { %>
+                <div class="alert alert-success" role="alert">
+                    <%= serverStatus %>
+                </div>
+                <% } %>
+
+                    <a href="/" class="btn btn-primary">Go to Home</a>
+                    <% if (typeof swaggerUrl !=='undefined' ) { %>
+                        <a href="<%= swaggerUrl %>" class="btn btn-outline-secondary" target="_blank">View Swagger
+                            Docs</a>
+                        <% } %>
+        </div>
+    </div>
+</body>
+
+
+</html>
